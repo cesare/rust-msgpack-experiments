@@ -3,5 +3,16 @@ name = "msgpack-experiments"
 version = "0.1.0"
 authors = ["SAWADA Tadashi <cesare@mayverse.jp>"]
 
+[[bin]]
+name = "encode"
+path = "src/encode.rs"
+
+[[bin]]
+name = "decode"
+path = "src/decode.rs"
+
 [dependencies]
 rmp = "0.8.6"
+rmp-serde = "0.13.1"
+serde = "1.0.4"
+serde_derive = "1.0.4"
