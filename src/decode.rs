@@ -3,6 +3,7 @@ extern crate serde;
 extern crate serde_derive;
 extern crate rmp_serde as rmps;
 
+use std::collections::HashMap;
 use std::fs::File;
 
 use serde::Deserialize;
@@ -11,7 +12,7 @@ use rmps::Deserializer;
 #[derive(Debug, PartialEq, Deserialize)]
 pub struct Foo {
     foo: String,
-    bar: i32,
+    bar: HashMap<String, i32>,
 }
 
 fn main() {

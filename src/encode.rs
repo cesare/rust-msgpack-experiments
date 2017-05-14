@@ -3,6 +3,7 @@ extern crate serde;
 extern crate serde_derive;
 extern crate rmp_serde as rmps;
 
+use std::collections::HashMap;
 use std::fs::File;
 
 use serde::Serialize;
@@ -11,13 +12,17 @@ use rmps::Serializer;
 #[derive(Debug, PartialEq, Serialize)]
 pub struct Foo {
     foo: String,
-    bar: i32,
+    bar: HashMap<String, i32>,
 }
 
 fn main() {
+    let mut map = HashMap::new();
+    map.insert("a".to_owned(), 123);
+    map.insert("b".to_owned(), 987);
+
     let foo = Foo {
         foo: "test".to_owned(),
-        bar: 123,
+        bar: map,
     };
 
     let mut file = File::create("foo.mp").unwrap();
